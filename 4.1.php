@@ -1,14 +1,10 @@
 <?php
-function alphabeticalOrder($str): string
+function alphabeticalOrder(string $str): string
 {
-
- $chars = str_split($str);
-
- sort($chars);
-
- return implode('', $chars);
+    $chars = str_split($str);
+    sort($chars);
+    return implode('', $chars);
 }
-
 
 $inputStr = 'alphabetical';
 $result = alphabeticalOrder($inputStr);

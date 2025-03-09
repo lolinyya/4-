@@ -1,26 +1,29 @@
 <?php
-function isPerfectNumber($n):bool {
+
+function isPerfectNumber(int $n): bool
+{
     if ($n < 1) {
         return false;
     }
-    $sum = 0;
+    $sumOfDivisors = 0; 
     for ($i = 1; $i < $n; $i++) {
         if ($n % $i === 0) {
-            $sum += $i;
+            $sumOfDivisors += $i;
         }
     }
-    return $sum === $n;
+    return $sumOfDivisors === $n; 
 }
 
-function findPerfectNumber($arr) {
-    foreach ($arr as $num) {
-        if (isPerfectNumber($num)) {
-            return $num;
+function findPerfectNumber(array $numbers): ?int 
+{
+    foreach ($numbers as $number) { 
+        if (isPerfectNumber($number)) { 
+            return $number; 
         }
     }
     return null;
 }
 
-$arr = [6, 12, 28, 5, 7];
-$perfectNum = findPerfectNumber($arr);
-echo "Идеальное число в массиве: " . ($perfectNum ?? "Не найдено"); 
+$numbers = [6, 12, 28, 5, 7]; 
+$perfectNumber = findPerfectNumber($numbers); 
+echo "Идеальное число в массиве: " . ($perfectNumber ?? "Не найдено"); 
